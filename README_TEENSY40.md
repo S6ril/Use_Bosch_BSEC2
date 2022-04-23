@@ -5,16 +5,22 @@
 
 For that I take compiler information from the [Forum Teensy](https://forum.pjrc.com/threads/61374-Using-the-BME680-with-IAQ-with-the-Teensy-3-1-3-2?highlight=bsec):
 
+# Installation
+
+To compile the code, you need to setup the Arduino IDE. As we use the [Bosch BSEC2 Library](https://github.com/BoschSensortec/Bosch-BSEC2-Library), the installation is not standard.
+
+## Setup your Arduino Environnement
+
+
 * Install `Arduino IDE`
 * Install `Teensyduino` like usual.
-* Then modify your platform.txt.
+* Modify your `platform.txt`:
 
-    You can find this file:
-    * Windows:
+    You can find this file on the Windows path:
 
-        ```
-        C:\Program Files (x86)\Arduino\hardware\teensy\avr
-        ```
+    ```
+    C:\Program Files (x86)\Arduino\hardware\teensy\avr
+    ```
 
     Open this file in administrator, or simply copy it on desktop, modifies it and past it again in this folder.
 
@@ -28,43 +34,49 @@ For that I take compiler information from the [Forum Teensy](https://forum.pjrc.
 
 * Restart Arduino IDE.
 
-## Download
+## Add libraries
 
-### Arduino library from Bosch
-
-Download all library needed (you can find it in `Library` folder, already modify for Teensy 40).
-* [Bosch-BSEC2-Library](https://github.com/BoschSensortec/Bosch-BSEC2-Library)
-* [Bosch-BME68x-Library](https://github.com/BoschSensortec/BME68x-Sensor-API)
-
-And add it to Arduino library: Sketch menu -> Include Library -> Add Zip Library
+Download the two libraries is the `Libraries` folder on this repo, and add it to your Arduino IDE: `Sketch menu -> Include Library -> Add Zip Library`.
 
 
-### Update the library (if you want to repeat the process)
+# Update the library (if you want to repeat the process)
 
 ❗ I change the src folder, to match Teensy 40 compiler complain. ❗
 
 The library is already modified in this Github repo.
 
-You can find on [Bosch BSEC2 Software](https://www.bosch-sensortec.com/software-tools/software/bme688-software/) the BSEC 2.x Software (not the integration example).
-Download it, it will ask for an email address and send a link to download. 
+If you want to redo it:
+
+* Download all libraries
+    * [Bosch-BSEC2-Library](https://github.com/BoschSensortec/Bosch-BSEC2-Library)
+    * [Bosch-BME68x-Library](https://github.com/BoschSensortec/BME68x-Sensor-API)
+    * [Bosch BSEC2 Software](https://www.bosch-sensortec.com/software-tools/software/bme688-software/) the BSEC 2.x Software (not the integration example).
+It will ask for an email address and send a link to download. 
 
 > Tips : [Email](https://www.fakemail.net/)
 
-Now you have the zip archive, you will find in `algo\normal_version\bin` a lot of version of the BSEC2 algorithm. 
+* Add to your Arduino IDE the two zip libraries: `Sketch menu -> Include Library -> Add Zip Library`.
+    * Bosch-BSEC2-Library
+    * Bosch-BME68x-Library
+
+
+Now with the Bosch BSEC2 Software, you are gonna to add the compiled library for Teensy ARM cortex-M7 to the Bosch-BSEC2-Library.
+
+* On Bosch BSEC2 Software, you will find in `algo\normal_version\bin` a lot of version of the BSEC2 algorithm. 
 Find the version which match your device:
-* For Teensy 40, i take `gcc\Cortex_M7\`
-You will extract those files in the library folder. 
+For Teensy 40, i take `gcc\Cortex_M7\`
 
 
-I explain where to extract it:
+* I explain where to extract it:
 
-* Go to the library `src` folder :
-```
-Documents\Arduino\libraries\Bosch-BSEC2-Library-master\src
-```
-* Make a new folder `imxrt1062`
-* Inside make a new folder `fpv5-d16-hard`
-* Now past all file depending of your microcontroller.
+    * Go to the library `src` folder :
+        ```
+        Documents\Arduino\libraries\Bosch-BSEC2-Library-master\src
+        ```
+    * Make a new folder `imxrt1062`
+    * Inside make a new folder `fpv5-d16-hard`
+    * Now past all file depending of your microcontroller.
+
 
 Finally my folder looks like:
 ```
