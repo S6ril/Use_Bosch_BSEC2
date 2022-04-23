@@ -1,10 +1,12 @@
 # How to use BSEC2 Arduino Library from Bosch with Teensy 40 and ESP32
 
-I set up this library with 2 controlers:
+## Installation
+
+I set up this library with 2 controllers:
 * ESP32, see [How to use with ESP32](README_ESP32.md)
 * TEENSY 40, see [How to use with TEENSY](README_TEENSY40.md)
 
-After setup, usage is the same for two controllers.
+After installation setup, the usage is the same for both controllers.
 
 ## Use
 
