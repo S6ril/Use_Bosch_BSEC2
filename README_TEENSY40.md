@@ -26,7 +26,7 @@ For that I take compiler information from the [Forum Teensy](https://forum.pjrc.
     recipe.c.combine.pattern="{compiler.path}{build.toolchain}{build.command.linker}" {build.flags.optimize} {build.flags.ld} {build.flags.ldspecs} {build.flags.cpu} -o "{build.path}/{build.project_name}.elf" {object_files} "{build.path}/{archive_file}" {compiler.libraries.ldflags} "-L{build.path}" {build.flags.libs}
     ```
 
-And restart Arduino IDE.
+* Restart Arduino IDE.
 
 ## Download
 
