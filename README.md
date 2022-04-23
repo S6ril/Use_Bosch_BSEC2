@@ -66,9 +66,13 @@ Sensor have to be wire at `Wire` I2C pins.
 
 ## Error
 
-If you get `BME68X error code : -2`, it is a connection issue.
+* `BME68X error code : -2`, it is a connection issue.
 Check the wiring of your sensor, and the I2C adress.
 
+* `Unable to import Pyserial`. Install `Pyserial` with Python : 
+    ```
+    pip install pyserial
+    ```
 
 # Modification
 
